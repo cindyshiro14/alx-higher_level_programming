@@ -1,23 +1,13 @@
-import marshal
-import sys
-
-def list_hidden_names(pyc_file):
-    try:
-        with open(pyc_file, "rb") as f:
-            code = marshal.load(f)
-
-        # Extract and print names that do not start with '__'
-        for name in code.co_names:
-            if not name.startswith("__"):
-                print(name)
-    except Exception as e:
-        print(f"Error: {e}")
-        sys.exit(1)
+#!/usr/bin/python3
+import pyc
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 4-hidden_discovery.py <pyc_file>")
-        sys.exit(1)
+    with open("hidden_4.pyc", "rb") as pyc_file:
+        code = pyc_file.read()
 
-    pyc_file = sys.argv[1]
-    list_hidden_names(pyc_file)
+    code_object = pyc.compile(code)
+    names = [name for name in dir(code_object) if not name.startswith('__')]
+    names.sort()
+
+    for name in names:
+        print(name)
