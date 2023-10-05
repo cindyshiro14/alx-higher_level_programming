@@ -1,2 +1,2 @@
-import string
-print(''.join(list(string.ascii_uppercase) + ['\n']))
+#!/usr/bin/python3
+import string; print(string.ascii_uppercase)
