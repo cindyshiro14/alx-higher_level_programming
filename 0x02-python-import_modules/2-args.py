@@ -3,13 +3,9 @@ import sys
 
 if __name__ == "__main__":
     argc = len(sys.argv) - 1  # Subtract 1 for the script name itself
+    args = sys.argv[1:]  # Exclude the script name from the arguments
 
-    if argc == 0:
-        print("0 arguments.")
-    elif argc == 1:
-        print("1 argument:")
-    else:
-        print("{} arguments:".format(argc))
+    print("{} {}{}.".format(argc, "argument" if argc == 1 else "arguments", ":" if argc > 0 else "."))
 
-    for i, arg in enumerate(sys.argv[1:], start=1):
+    for i, arg in enumerate(args, start=1):
         print("{}: {}".format(i, arg))
