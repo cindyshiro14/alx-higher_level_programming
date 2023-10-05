@@ -1,18 +1,15 @@
-import dis
+import marshal
 import sys
 
 def list_hidden_names(pyc_file):
     try:
         with open(pyc_file, "rb") as f:
-            code = f.read()
-
-        # Disassemble the bytecode
-        instructions = dis.get_instructions(code)
+            code = marshal.load(f)
 
         # Extract and print names that do not start with '__'
-        for instr in instructions:
-            if instr.opname == "LOAD_NAME" and not instr.argval.startswith("__"):
-                print(instr.argval)
+        for name in code.co_names:
+            if not name.startswith("__"):
+                print(name)
     except Exception as e:
         print(f"Error: {e}")
         sys.exit(1)
