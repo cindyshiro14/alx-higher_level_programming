@@ -1,14 +1,2 @@
 #!/bin/bash
-
-# Get the Python script filename from the environment variable
-PY_FILE="$PYFILE"
-
-# Check if the PY_FILE variable is set and not empty
-if [ -n "$PY_FILE" ]; then
-    # Run the Python script with the correct shebang line
-    # Ensure that the Python script is executable
-    chmod +x "$PY_FILE"
-    ./"$PY_FILE"
-else
-    echo "PYFILE environment variable is not set or empty."
-fi
+$PYFILE
