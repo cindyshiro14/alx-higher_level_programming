@@ -1,10 +1,2 @@
 #!/bin/bash
-
-# Check if the PYCODE environment variable is set
-if [ -z "$PYCODE" ]; then
-echo "Error: PYCODE environment variable is not set."
-exit 1
-fi
-
-# Use eval to execute the Python code stored in PYCODE
-eval "$PYCODE"
+python3 -c "$PYCODE"
