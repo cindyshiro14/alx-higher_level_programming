@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
+alphabet = ""
 for letter in range(ord('a'), ord('z') + 1):
-    print(chr(letter), end='')
+    alphabet += chr(letter)
 
-# Print a newline character to end the line
-print()
+print("{}".format(alphabet), end="")
