@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 
 def no_c(my_string):
-    new_string = ""
-    for char in my_string:
-        if char != 'c' and char != 'C':
-            new_string += char
-    return new_string
+    # Initialize an empty string to store the result
+    result = []
 
-# Test cases
+    # Iterate through each character in the input string
+    for char in my_string:
+        # Check if the character is not 'c' or 'C' and add it to the result list
+        if char != 'c' and char != 'C':
+            result.append(char)
+
+    # Join the characters in the result list to form the final string
+    return ''.join(result)
+
 if __name__ == "__main__":
-    print(no_c("Best School"))  # Output: "Best Shool"
-    print(no_c("Chicago"))      # Output: "hiago"
-    print(no_c("C is fun!"))    # Output: " is fun!"
+    print(no_c("Best School"))
+    print(no_c("Chicago"))
+    print(no_c("C is fun!"))
