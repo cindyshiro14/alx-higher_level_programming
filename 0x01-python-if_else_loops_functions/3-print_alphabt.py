@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
+output = ""
 for letter in range(ord('a'), ord('z') + 1):
     if letter != ord('e') and letter != ord('q'):
-        print("{}".format(chr(letter)), end='')
+        output += chr(letter)
 
-# Print a newline character to end the line
-print()
+print("{}".format(output), end='')
