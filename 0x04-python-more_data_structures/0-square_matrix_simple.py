@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def square_matrix_simple(matrix=[]):
     # Create a new matrix using list comprehension
     # Square each element in the original matrix
